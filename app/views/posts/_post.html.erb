@@ -1,0 +1,23 @@
+ <!-- START ARTICLE -->
+                    <div class="card article">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content has-text-centered">
+                                    <p class="title article-title"><%= link_to post.title, post %></p>
+                                    <div class="tags has-addons level-item">
+                                        <span class="tag is-rounded"><%=post.created_at.strftime("%d/%m/%Y")%></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="content article-body">
+                                <%= post.content %>
+                                <div class="has-text-centered">
+                                <%if session[:admin]%>
+                                <td><%= link_to 'Edytuj', edit_post_path(post) %></td>
+                                <td><%= link_to 'Usuń', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                </div>
+                                <%end%>
+                            </div>
+                        </div>
+                    </div>
+<!-- END ARTICLE -->
